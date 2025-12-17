@@ -5,7 +5,6 @@ const TasksContext = createContext();
 export const TasksProvider = ({ children }) => {
   const [tasks, setTasks] = useState([]);
 
-  // Carrega tarefas do localStorage ao iniciar
   useEffect(() => {
     const savedTasks = localStorage.getItem('tasks');
     if (savedTasks) {
@@ -13,7 +12,6 @@ export const TasksProvider = ({ children }) => {
     }
   }, []);
 
-  // Salva tarefas no localStorage sempre que mudarem
   useEffect(() => {
     localStorage.setItem('tasks', JSON.stringify(tasks));
   }, [tasks]);
